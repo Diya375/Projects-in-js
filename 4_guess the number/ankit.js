@@ -45,13 +45,20 @@ function validateGuess(guess) {
 }
 
 function checkGuess(guess) {
+  const difference = Math.abs(guess - randomNumber);
+
   if (guess === randomNumber) {
     displayMessage(`You guessed it right`);
     endGame();
+
+  } else if (difference <= 5) {
+    displayMessage(`Very close!`);
+
   } else if (guess < randomNumber) {
-    displayMessage(`Number is TOOO low`);
+    displayMessage(`Number is TOO low`);
+
   } else if (guess > randomNumber) {
-    displayMessage(`Number is TOOO High`);
+    displayMessage(`Number is TOO High`);
   }
 }
 
